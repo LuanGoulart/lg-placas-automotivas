@@ -1,0 +1,103 @@
+:root {
+  --cor-primaria: #1d4ed8;
+  --cor-secundaria: #3b82f6;
+  --cor-destaque: #22c55e;
+  --cor-fundo-claro: #f3f4f6;
+  --cor-texto: #374151;
+  --cor-texto-leve: #6b7280;
+  --cor-escura: #111827;
+}
+
+/* 🌙 Modo escuro */
+body.dark-mode {
+  background-color: var(--cor-escura);
+  color: #f9fafb;
+}
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #0f172a;
+  color: #f9fafb;
+}
+body.dark-mode .card-produto {
+  background-color: #1f2937;
+  color: #f9fafb;
+  -webkit-text-fill-color: #f3f4f6;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* 🧩 Contêiner dos cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: stretch; /* 🔑 Faz todas as colunas terem a mesma altura */
+}
+
+/* 🏷️ Estilo dos cards */
+.card-produto {
+  display: flex;             /* Flexbox para alinhar conteúdo verticalmente */
+  flex-direction: column;    /* Coloca os elementos em coluna */
+  justify-content: flex-start;
+  height: 100%;              /* Faz o card preencher a altura disponível */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 22px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  max-width: 400px;
+  margin: auto;
+}
+
+.card-produto img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease; /* animação suave */
+  cursor: zoom-in; /* muda o cursor */
+}
+
+.card-produto img:hover {
+  transform: scale(1.5); /* dá zoom de 25% */
+}
+
+
+.card-produto h3 {
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin-bottom: 8px;
+}
+
+.card-produto p {
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.card-produto ul {
+  list-style-type: disc;   /* ✅ Força o uso de pontos como marcador */
+  list-style-position: inside; /* Faz os pontos ficarem alinhados dentro */
+  text-align: left;
+  color: #4b5563;
+  margin-bottom: 16px;
+  padding-left: 20px;      /* Garante espaço para os marcadores */
+}
+
+
+/* 🔘 Botão alinhado ao final */
+.card-produto a {
+  margin-top: auto;      /* Empurra o botão para o final do card */
+  width: 100%;
+  text-align: center;
+  background-color: var(--cor-destaque);
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+.card-produto a:hover {
+  background-color: #2563eb;
+}
