@@ -1,211 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LG Placas Automotiva - Placas de Veículos em Itajubá</title>
-    <meta
-      name="description"
-      content="LG Placas Automotiva oferece placas veiculares padrão Mercosul em Itajubá, MG. Qualidade, agilidade e conformidade com o Denatran."
-    />
-    <meta name="author" content="LG Placas Automotiva" />
-    <meta name="robots" content="index, follow" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LG Placas Automotiva - Placas de Veículos em Itajubá</title>
+  <meta
+    name="description"
+    content="LG Placas Automotiva oferece placas veiculares padrão Mercosul em Itajubá, MG. Qualidade, agilidade e conformidade com o Denatran."
+  />
+  <meta name="author" content="LG Placas Automotiva" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="LG Placas Automotiva - Placas Mercosul"
-    />
-    <meta
-      property="og:description"
-      content="Placas automotivas padrão Mercosul em Itajubá."
-    />
-    <meta
-      property="og:image"
-      content="https://luangoulart.github.io/lg-placas-automotivas/imagens/lg-placas-automotivas.jpg"
-    />
-    <meta
-      property="og:url"
-      content="https://luangoulart.github.io/lg-placas-automotivas/"
-    />
-    <meta property="og:type" content="website" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="LG Placas Automotiva - Placas Mercosul" />
+  <meta
+    property="og:description"
+    content="Placas automotivas padrão Mercosul em Itajubá."
+  />
+  <meta
+    property="og:image"
+    content="https://luangoulart.github.io/lg-placas-automotivas/imagens/lg-placas-automotivas.jpg"
+  />
+  <meta property="og:url" content="https://luangoulart.github.io/lg-placas-automotivas/" />
+  <meta property="og:type" content="website" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="produtos.css" />
-  </head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="produtos.css" />
+</head>
 
-  <body class="bg-gray-100 font-sans">
-    <!-- Navegação -->
-    <nav
-      class="text-white shadow-md"
-      style="background: linear-gradient(90deg, #00040a, #1d4ed8)"
-    >
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center"
+<body class="bg-gray-100 font-sans">
+  <!-- Navegação -->
+  <nav class="text-white shadow-md" style="background: linear-gradient(90deg, #00040a, #1d4ed8)">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+      <h1 class="text-xl font-bold">LG Placas Automotiva</h1>
+      <!-- Links desktop -->
+      <div class="hidden md:flex space-x-6 text-sm sm:text-base">
+        <a href="#home" class="hover:text-gray-300 hover:scale-105 transition">Início</a>
+        <a href="#produtos" class="hover:text-gray-300 hover:scale-105 transition">Produtos</a>
+        <a href="#sobre" class="hover:text-gray-300 hover:scale-105 transition">Sobre</a>
+        <a href="#servicos" class="hover:text-gray-300 hover:scale-105 transition">Serviços</a>
+        <a href="#contato" class="hover:text-gray-300 hover:scale-105 transition">Contato</a>
+      </div>
+      <!-- Botão menu mobile -->
+      <button class="md:hidden focus:outline-none" id="menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <!-- Menu mobile -->
+  <ul id="menu-mobile" class="hidden flex-col bg-blue-800 text-white px-4 py-2 space-y-2 md:hidden">
+    <li><a href="#home" class="block hover:text-gray-300">Início</a></li>
+    <li><a href="#produtos" class="block hover:text-gray-300">Produtos</a></li>
+    <li><a href="#sobre" class="block hover:text-gray-300">Sobre</a></li>
+    <li><a href="#servicos" class="block hover:text-gray-300">Serviços</a></li>
+    <li><a href="#contato" class="block hover:text-gray-300">Contato</a></li>
+  </ul>
+
+  <!-- Hero -->
+  <section id="home" class="text-white py-20" style="background: linear-gradient(90deg, #1d4ed8, #00040a)">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <img src="imagens/lg placas logo site.png" alt="LG Placas Logo" class="mx-auto mb-6 w-3/4 sm:w-1/2 lg:w-1/3" />
+      <p class="text-xl mb-8">
+        Especialistas em placas automotivas padrão Mercosul em Itajubá, MG.
+        Qualidade, agilidade e conformidade garantidas.
+      </p>
+      <a
+        href="#contato"
+        class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition"
       >
-        <h1 class="text-xl font-bold">LG Placas Automotiva</h1>
-        <!-- Links desktop -->
-        <div class="hidden md:flex space-x-6 text-sm sm:text-base">
-          <a href="#home" class="hover:text-gray-300 hover:scale-105 transition"
-            >Início</a
-          >
-          <a
-            href="#produtos"
-            class="hover:text-gray-300 hover:scale-105 transition"
-            >Produtos</a
-          >
-          <a
-            href="#sobre"
-            class="hover:text-gray-300 hover:scale-105 transition"
-            >Sobre</a
-          >
-          <a
-            href="#servicos"
-            class="hover:text-gray-300 hover:scale-105 transition"
-            >Serviços</a
-          >
-          <a
-            href="#contato"
-            class="hover:text-gray-300 hover:scale-105 transition"
-            >Contato</a
-          >
-        </div>
-        <!-- Botão menu mobile -->
-        <button class="md:hidden focus:outline-none" id="menu-btn">☰</button>
-      </div>
-    </nav>
+        Solicite sua Placa Agora
+      </a>
+    </div>
+  </section>
 
-    <!-- Menu mobile -->
-    <ul
-      id="menu-mobile"
-      class="hidden flex-col bg-blue-800 text-white px-4 py-2 space-y-2 md:hidden"
-    >
-      <li><a href="#home" class="block hover:text-gray-300">Início</a></li>
-      <li>
-        <a href="#produtos" class="block hover:text-gray-300">Produtos</a>
-      </li>
-      <li><a href="#sobre" class="block hover:text-gray-300">Sobre</a></li>
-      <li>
-        <a href="#servicos" class="block hover:text-gray-300">Serviços</a>
-      </li>
-      <li><a href="#contato" class="block hover:text-gray-300">Contato</a></li>
-    </ul>
 
-    <!-- Hero -->
-    <section
-      id="home"
-      class="text-white py-20"
-      style="background: linear-gradient(90deg, #1d4ed8, #00040a)"
-    >
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <img
-          src="imagens/lg placas logo site.png"
-          alt="LG Placas Logo"
-          class="mx-auto mb-6 w-3/4 sm:w-1/2 lg:w-1/3"
-        />
-        <p class="text-xl mb-8">
-          Especialistas em placas automotivas padrão Mercosul em Itajubá, MG.
-          Qualidade, agilidade e conformidade garantidas.
-        </p>
-        <a
-          href="#contato"
-          class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition"
-        >
-          Solicite sua Placa Agora
-        </a>
-      </div>
-    </section>
 
-    <!-- Produtos -->
     <section
       class="text-white py-2 shadow-md"
       style="background: linear-gradient(90deg, #000000, #000000)"
     >
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold">Nossos Produtos</h2>
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div>
+          <h1 class="text-3xl font-bold">Nossos Produtos</h1>
+        </div>
       </div>
     </section>
 
-    <section
-      id="produtos"
-      class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-    >
-      <div class="card-produto">
-        <h3>Placa Carro Mercosul</h3>
-        <img src="imagens/CORES PLACAS.png" />
-        <p>Alta durabilidade, padrão oficial e acabamento profissional.</p>
-        <ul>
-          <li>Material refletivo homologado</li>
-          <li>QR Code com relevo</li>
-          <li>Entrega rápida</li>
-        </ul>
-        <a
-          href="https://wa.me/5535998669644?text=Quero%20Placa%20Carro%20Mercosul"
-          target="_blank"
-          class="w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700"
-        >
-          Solicitar pelo WhatsApp
-        </a>
-      </div>
-      <div class="card-produto">
-        <h3>Placa Moto Mercosul</h3>
-        <img src="imagens/todas as placas de moto.png" />
-        <p>Alta durabilidade, padrão oficial e acabamento profissional.</p>
-        <ul>
-          <li>Material refletivo homologado</li>
-          <li>QR Code com relevo</li>
-          <li>Entrega rápida</li>
-        </ul>
-        <a
-          href="https://wa.me/5535998669644?text=Quero%20Placa%20Moto%20Mercosul"
-          target="_blank"
-          class="w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700"
-        >
-          Solicitar pelo WhatsApp
-        </a>
-      </div>
-      <div class="card-produto">
-        <h3>Placas Especiais</h3>
-        <img src="imagens/placas especiais.png" />
-        <p>Soluções sob medida para veículos de coleção e importados.</p>
-        <ul>
-          <li>Placas pretas</li>
-          <li>Placas verdes</li>
-          <li>Placa mini e reduzida</li>
-        </ul>
-        <a
-          href="https://wa.me/5535998669644?text=Quero%20Placas%20Especiais"
-          target="_blank"
-          class="w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700"
-        >
-          Solicitar pelo WhatsApp
-        </a>
+    <!-- Seção de Produtos -->
+    <section id="produtos" class="max-w-7xl mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Produto 1 -->
+        <div class="card-produto">
+          <h3>Placa Carro Mercosul</h3>
+          <img src="imagens/CORES PLACAS.png" />
+          <p>
+            Alta durabilidade, padrão oficial e acabamento profissional para
+            veículos de todos os tipos.
+          </p>
+          <ul>
+            <li>Material refletivo homologado</li>
+            <li>QR Code com relevo</li>
+            <li>Entrega rápida</li>
+          </ul>
+          <a
+            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20da%20Placa%20de%20Carro%20Mercosul"
+            target="_blank"
+            class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Solicitar pelo WhatsApp
+          </a>
+        </div>
+
+        <!-- Produto 1 -->
+        <div class="card-produto">
+          <h3>Placa Moto Mercosul</h3>
+          <img src="imagens/todas as placas de moto.png"/>
+          <p>
+            Alta durabilidade, padrão oficial e acabamento profissional para
+            veículos de todos os tipos.
+          </p>
+          <ul>
+            <li>Material refletivo homologado</li>
+            <li>QR Code com relevo</li>
+            <li>Entrega rápida</li>
+          </ul>
+          <a
+            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20da%20Placa%20de%20Moto%20Mercosul"
+            target="_blank"
+            class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Solicitar pelo WhatsApp
+          </a>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="card-produto">
+          <h3>Placas Especiais</h3>
+          <img src="imagens/placas especiais.png" alt="Placa Especial" />
+          <p>
+            Soluções sob medida para <strong>veículos de coleção</strong>,
+            <strong>importados</strong> ou modelos que não comportam placas
+            padrão.
+          </p>
+          <ul>
+            <li>Placas pretas para clássicos</li>
+            <li>Placas verdes para testes</li>
+            <li>Placa mini 11×34 cm</li>
+            <li>Placa reduzida 13×34 cm</li>
+          </ul>
+          <a
+            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20das%20Placas%20Especiais"
+            target="_blank"
+            class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Solicitar pelo WhatsApp
+          </a>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="card-produto">
+          <h3>Suporte de Placa Moto</h3>
+          <img
+            src="imagens/SUPORTE MOTO.png"
+            alt="Suporte de Placa Moto"
+            width="50%"
+          />
+          <p>
+            Compatível com diversos modelos, resistente e seguro para fixação
+            das placas.
+          </p>
+          <ul>
+            <li>Alta resistência</li>
+            <li>Design discreto</li>
+            <li>Fácil instalação</li>
+          </ul>
+          <a
+            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20do%20Suporte%20de%20Placa%20Moto"
+            target="_blank"
+            class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Solicitar pelo WhatsApp
+          </a>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="card-produto">
+          <h3>Suporte de Placa Carro</h3>
+          <img
+            src="imagens/suporte carro arte.png"
+            alt="Suporte de Placa Carro"
+            width="50%"
+          />
+          <p>
+            Compatível com diversos modelos, resistente e seguro para fixação
+            das placas.
+          </p>
+          <ul>
+            <li>Alta resistência</li>
+            <li>Design discreto</li>
+            <li>Fácil instalação</li>
+          </ul>
+          <a
+            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20do%20Suporte%20de%20Placa%20Carro"
+            target="_blank"
+            class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Solicitar pelo WhatsApp
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Sobre -->
     <section id="sobre" class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-8">Sobre Nós</h2>
-        <p class="text-lg text-gray-700 mb-8">
-          A LG Placas Automotiva é referência em Itajubá na fabricação de placas
-          padrão Mercosul desde 2022. Garantimos qualidade, rapidez e
-          conformidade legal com o Denatran.
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Sobre Nós</h2>
+        <p class="text-lg text-gray-700 text-center mb-8">
+          A LG Placas Automotiva é referência em Itajubá e região na fabricação
+          de placas veiculares no padrão Mercosul. Desde novembro de 2022,
+          atuamos com seriedade, responsabilidade e compromisso com a qualidade.
+          Nosso foco é garantir que cada cliente receba um produto conforme as
+          normas vigentes, com acabamento impecável e atendimento profissional.
+          Investimos constantemente em tecnologia e capacitação para manter
+          nosso padrão de excelência.
         </p>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div>
-            <h3 class="font-semibold text-xl">Qualidade</h3>
-            <p class="text-gray-600">Placas refletivas com materiais 3M.</p>
+        <div class="grid md:grid-cols-3 gap-8 mt-8">
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-2">Qualidade Superior</h3>
+            <p class="text-gray-600">
+              Placas refletivas com materiais de longa durabilidade todas com
+              materiais 3M.
+            </p>
           </div>
-          <div>
-            <h3 class="font-semibold text-xl">Agilidade</h3>
-            <p class="text-gray-600">Entrega rápida e sem complicações.</p>
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-2">Atendimento Rápido</h3>
+            <p class="text-gray-600">
+              Confecção e entrega no menor tempo possível.
+            </p>
           </div>
-          <div>
-            <h3 class="font-semibold text-xl">Conformidade</h3>
-            <p class="text-gray-600">100% regulamentadas pelo Denatran.</p>
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-2">Conformidade Legal</h3>
+            <p class="text-gray-600">
+              Placas 100% regulamentadas pelo Denatran.
+            </p>
           </div>
         </div>
       </div>
@@ -213,24 +251,43 @@
 
     <!-- Serviços -->
     <section id="servicos" class="py-16 bg-gray-100">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-8">Nossos Serviços</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-          <div>
-            <h3 class="font-semibold text-xl mb-2">Placas Mercosul</h3>
-            <p class="text-gray-600">Carros, motos e veículos comerciais.</p>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Nossos Serviços</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="service-card">
+            <h3 class="text-xl font-semibold mb-4">Placas Mercosul</h3>
+            <p class="text-gray-600 mb-4">
+              Confecção de placas padrão Mercosul para carros, motos e veículos
+              comerciais.
+            </p>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Placas refletivas</li>
+              <li>QR Code com auto relevo</li>
+              <li>Entrega rápida</li>
+            </ul>
           </div>
-          <div>
-            <h3 class="font-semibold text-xl mb-2">Substituição</h3>
-            <p class="text-gray-600">
+          <div class="service-card">
+            <h3 class="text-xl font-semibold mb-4">Substituição de Placas</h3>
+            <p class="text-gray-600 mb-4">
               Troca de placas danificadas ou perdidas.
             </p>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Processo simplificado</li>
+              <li>Documentação orientada</li>
+              <li>Ajudamos na instalação ou troca</li>
+            </ul>
           </div>
-          <div>
-            <h3 class="font-semibold text-xl mb-2">Placas Especiais</h3>
-            <p class="text-gray-600">
-              Colecionáveis, esportivos e experimentais.
+          <div class="service-card">
+            <h3 class="text-xl font-semibold mb-4">Placas Especiais</h3>
+            <p class="text-gray-600 mb-4">
+              Placas para veículos colecionáveis, esportivos e experimentais.
             </p>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Placas pretas para clássicos</li>
+              <li>Placas verdes para testes</li>
+              <li>Mini placa 11×34 cm</li>
+              <li>Placa reduzida 13×34 cm</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -238,35 +295,68 @@
 
     <!-- Contato -->
     <section id="contato" class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-8">Entre em Contato</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Coluna 1 -->
+        <div class="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Informações</h3>
-            <p class="text-gray-600">Praça Doutor José Braz, 57 - Morro Chic</p>
-            <p class="text-gray-600">Itajubá - MG</p>
-            <p class="text-gray-600">WhatsApp: (35) 99866-9644</p>
-            <p class="text-gray-600 mb-4">Seg-Sex, 8h-18h</p>
+            <h3 class="text-xl font-semibold mb-4">Informações de Contato</h3>
+            <p class="text-gray-600 mb-2">
+              Praça Doutor José Braz, 57 - Morro Chic, Itajubá - MG
+            </p>
+            <p class="text-gray-600 mb-2">WhatsApp: (35) 99866-9644</p>
+            <p class="text-gray-600 mb-4">Horário: Seg-Sex, 8h-18h</p>
             <a
-              href="https://wa.me/5535998669644?text=Quero%20um%20orçamento"
+              href="https://wa.me/5535998669644?text=Gostaria%20de%20fazer%20um%20or%C3%A7amento !"
               target="_blank"
-              class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 inline-block"
+              class="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 inline-block mb-4"
             >
               Fale pelo WhatsApp
             </a>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.634783818303!2d-45.4656490!3d-22.4234719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cb7d96ab275f23%3A0xb1fb3f246d9d0ca4!2sLG%20Placas%20Automotivas%2C%20Itajub%C3%A1%20-%20MG%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1697312345678"
+                width="100%"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
-          <!-- Coluna 2 -->
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.634783818303!2d-45.4656490!3d-22.4234719"
-              width="100%"
-              height="300"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
+          <!-- <form
+            action="https://formspree.io/f/your-formspree-id"
+            method="POST"
+            class="space-y-2"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Seu Nome"
+              class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Seu Email"
+              class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Sua Mensagem"
+              rows="4"
+              class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            ></textarea>
+            <button
+              type="submit"
+              class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary"
+            >
+              Enviar Mensagem
+            </button>
+          </form> -->
         </div>
       </div>
     </section>
@@ -281,7 +371,6 @@
         Desenvolvido para atender Itajubá e região com qualidade e confiança.
       </p>
     </footer>
-
     <!-- Script para menu mobile -->
     <script>
       const btn = document.getElementById("menu-btn");
@@ -291,5 +380,9 @@
         mobileMenu.classList.toggle("hidden");
       });
     </script>
+  </body>
+</html>
+
+    <script src="script.js"></script>
   </body>
 </html>
