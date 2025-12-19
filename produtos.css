@@ -60,7 +60,7 @@ body.dark-mode .card-produto {
 }
 
 .card-produto img:hover {
-  transform: scale(1.5); /* dá zoom de 25% */
+  transform: scale(1.8); /* dá zoom de 25% */
 }
 
 
@@ -101,3 +101,4 @@ body.dark-mode .card-produto {
 .card-produto a:hover {
   background-color: #2563eb;
 }
+
