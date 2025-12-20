@@ -83,6 +83,7 @@
 
 </head>
 
+
 <body class="bg-gray-100 font-sans">
   <!-- Navegação -->
   <nav class="text-white shadow-md" style="background: linear-gradient(90deg, #00040a, #1d4ed8)">
@@ -449,14 +450,22 @@
     </footer>
     <!-- Script para menu mobile -->
     <script>
-      const btn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("menu-mobile");
+  const btn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("menu-mobile");
 
-      btn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    </script>
-    <script src="script.js"></script>
-  </body>
+  btn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+<script src="script.js"></script>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox-overlay">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+</div>
+
 </html>
 
