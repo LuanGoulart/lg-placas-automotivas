@@ -62,3 +62,26 @@ function toggleColorPanel() {
 
 window.onload = () => updateColors();
 
+// ===== LIGHTBOX PARA TODAS AS IMAGENS =====
+// ===== LIGHTBOX PARA TODAS AS IMAGENS =====
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  if (!lightbox || !lightboxImg) return;
+
+  document.querySelectorAll("img").forEach((img) => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+    document.body.style.overflow = "auto";
+  });
+});
+// ===== FIM LIGHTBOX =====
