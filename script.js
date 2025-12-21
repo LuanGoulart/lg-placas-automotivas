@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!lightbox || !lightboxImg) return;
 
-  document.querySelectorAll("img").forEach((img) => {
+ document.querySelectorAll("img:not(.no-lightbox)").forEach((img) => {
     img.addEventListener("click", () => {
       lightboxImg.src = img.src;
       lightbox.style.display = "flex";
