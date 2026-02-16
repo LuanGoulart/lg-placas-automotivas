@@ -38,23 +38,99 @@
     :root { scroll-behavior: smooth; }
     .whatsapp-fixed {
       position: fixed;
-      width: 65px;
-      height: 65px;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25d366;
-      color: #FFF;
-      border-radius: 50px;
+      width: 68px;
+      height: 68px;
+      bottom: 24px;
+      right: 22px;
+      background: linear-gradient(145deg, #25d366 0%, #0ea84f 100%);
+      color: #fff;
+      border-radius: 9999px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 32px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      z-index: 1000;
-      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.55);
+      z-index: 1100;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: whatsapp-float 2.6s ease-in-out infinite, whatsapp-pulse 2.1s ease-out infinite;
     }
-    .whatsapp-fixed:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
-    
+
+    .whatsapp-fixed::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border-radius: inherit;
+      border: 2px solid rgba(37, 211, 102, 0.45);
+      opacity: 0;
+      animation: whatsapp-ring 2.1s ease-out infinite;
+      pointer-events: none;
+    }
+
+    .whatsapp-fixed::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 82px;
+      background: rgba(15, 23, 42, 0.92);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 8px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 8px 18px rgba(2, 6, 23, 0.35);
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    .whatsapp-fixed:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.42), 0 0 0 8px rgba(37, 211, 102, 0.22);
+      animation-play-state: paused;
+    }
+
+    .whatsapp-fixed:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .whatsapp-fixed:focus-visible {
+      outline: 3px solid rgba(255, 255, 255, 0.9);
+      outline-offset: 3px;
+    }
+
+    @keyframes whatsapp-float {
+      0%,
+      100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes whatsapp-pulse {
+      0% { box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      70% { box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 0 0 16px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    @keyframes whatsapp-ring {
+      0% { transform: scale(0.9); opacity: 0.65; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-fixed {
+        width: 62px;
+        height: 62px;
+        bottom: 18px;
+        right: 16px;
+      }
+
+      .whatsapp-fixed::after {
+        display: none;
+      }
+    }
     .glass-nav {
       background: rgba(0, 4, 10, 0.9);
       -webkit-backdrop-filter: blur(10px);
@@ -119,7 +195,7 @@
 
 <body class="bg-slate-50 font-sans text-slate-900">
 
-  <a href="https://wa.me/5535998669644?text=Olá! Gostaria de um orçamento para placa Mercosul." class="whatsapp-fixed" target="_blank" rel="noopener" title="Fale Conosco">
+  <a href="https://wa.me/5535998669644?text=Olá! Gostaria de um orçamento para placa Mercosul." class="whatsapp-fixed" data-label="Chame no WhatsApp" target="_blank" rel="noopener" title="Fale Conosco" aria-label="Fale conosco no WhatsApp">
     <svg viewBox="0 0 32 32" class="w-9 h-9 fill-current"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.475 2.037 7.787l-2.037 7.425 7.612-2c2.313 1.213 4.938 1.9 7.7 1.9 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.3c-2.45 0-4.787-0.638-6.837-1.762l-0.487-0.275-4.525 1.187 1.213-4.412-0.3-0.475c-1.25-1.987-1.913-4.287-1.913-6.662 0-7.337 5.963-13.3 13.3-13.3s13.3 5.963 13.3 13.3-5.963 13.3-13.3 13.3zM22.563 18.913c-0.362-0.188-2.15-1.063-2.487-1.187s-0.588-0.188-0.837 0.188-0.963 1.187-1.175 1.425-0.438 0.263-0.8 0.075c-0.362-0.188-1.537-0.563-2.925-1.8s-2.325-2.775-2.6-3.25c-0.275-0.475-0.025-0.738 0.213-0.963 0.213-0.2 0.475-0.55 0.713-0.825s0.312-0.463 0.475-0.775c0.163-0.313 0.075-0.588-0.037-0.775s-0.837-2.025-1.15-2.775c-0.3-0.738-0.612-0.638-0.837-0.65s-0.475-0.013-0.738-0.013c-0.263 0-0.688 0.1-1.05 0.488s-1.375 1.35-1.375 3.287c0 1.938 1.413 3.813 1.613 4.075s2.775 4.238 6.725 5.95c0.938 0.4 1.675 0.638 2.25 0.825 0.938 0.3 1.788 0.263 2.463 0.163 0.75-0.113 2.15-0.875 2.45-1.725s0.3-1.575 0.213-1.725c-0.1-0.138-0.35-0.213-0.713-0.4z"></path></svg>
   </a>
 
@@ -139,7 +215,7 @@
     </div>
   </nav>
 
-  <ul id="menu-mobile" class="hidden flex-col bg-slate-900 text-white px-6 py-4 space-y-4 md:hidden border-t border-slate-800">
+  <ul id="menu-mobile" class="hidden fixed top-20 left-0 right-0 z-[60] flex-col bg-slate-900/95 text-white px-6 py-4 space-y-4 md:hidden border-t border-slate-800 shadow-2xl backdrop-blur-sm max-h-[calc(100vh-5rem)] overflow-y-auto">
     <li><a href="#home" class="block py-2">Início</a></li>
     <li><a href="#produtos" class="block py-2">Produtos</a></li>
     <li><a href="#sobre" class="block py-2">Sobre</a></li>
@@ -366,12 +442,35 @@
   <script>
     const btn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("menu-mobile");
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    }
+
     btn.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
+      document.body.classList.toggle("overflow-hidden", !mobileMenu.classList.contains("hidden"));
     });
-    
+
     document.querySelectorAll('#menu-mobile a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const clickedOutsideMenu = !mobileMenu.contains(event.target);
+      const clickedOutsideButton = !btn.contains(event.target);
+      const menuIsOpen = !mobileMenu.classList.contains('hidden');
+
+      if (menuIsOpen && clickedOutsideMenu && clickedOutsideButton) {
+        closeMobileMenu();
+      }
     });
   </script>
   
