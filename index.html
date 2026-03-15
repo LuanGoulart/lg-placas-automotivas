@@ -96,6 +96,13 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="produtos.css" />
 
+    <!-- Google Places API Script - Substitua YOUR_API_KEY pela sua chave real -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"
+    ></script>
+
     <style>
       :root {
         scroll-behavior: smooth;
@@ -1163,86 +1170,14 @@
         </header>
 
         <!-- Lista de avaliações -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <p class="font-bold text-lg mb-1">Alessandro Silva Pereira</p>
-            <p class="text-yellow-300 text-sm mb-2">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </p>
-            <p class="text-slate-300 text-sm mb-1">
-              3 avaliações &#8226; 0 foto
-            </p>
-            <p class="text-slate-200 text-sm mb-2">Há 2 horas</p>
-            <p class="text-slate-300 text-sm">
-              "Muito rápido e eficiente.parabens"
-            </p>
-          </article>
-
-          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <p class="font-bold text-lg mb-1">
-              Rogerio Marinho De Faria Marinho
-            </p>
-            <p class="text-yellow-300 text-sm mb-2">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </p>
-            <p class="text-slate-300 text-sm mb-1">
-              6 avaliações &#8226; 5 fotos
-            </p>
-            <p class="text-slate-200 text-sm mb-2">Há 3 horas</p>
-            <p class="text-slate-300 text-sm">
-              "A excelência está no atendimento soma a eficiência que qualquer
-              cliente gostaria de ter. Parabéns pelo atendimento."
-            </p>
-          </article>
-
-          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <p class="font-bold text-lg mb-1">Eder Dias</p>
-            <p class="text-yellow-300 text-sm mb-2">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </p>
-            <p class="text-slate-300 text-sm mb-1">
-              7 avaliações &#8226; 0 foto
-            </p>
-            <p class="text-slate-200 text-sm">Há 9 semanas</p>
-          </article>
-
-          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <p class="font-bold text-lg mb-1">idalino silva</p>
-            <p class="text-yellow-300 text-sm mb-2">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </p>
-            <p class="text-slate-300 text-sm mb-1">
-              1 avaliação &#8226; 0 foto
-            </p>
-            <p class="text-slate-200 text-sm">Há 30 semanas</p>
-          </article>
-
-          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <p class="font-bold text-lg mb-1">Andreisa Rodrigues</p>
-            <p class="text-yellow-300 text-sm mb-2">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </p>
-            <p class="text-slate-300 text-sm mb-1">
-              1 avaliação &#8226; 0 foto
-            </p>
-            <p class="text-slate-200 text-sm mb-2">22 de out. de 2024</p>
-            <p class="text-slate-300 text-sm">
-              "Larissa, ótima atendente. Rápida. É o que precisamos no
-              momento..."
-            </p>
-          </article>
-
-          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <p class="font-bold text-lg mb-1">PC AAlaor Alves Junior</p>
-            <p class="text-yellow-300 text-sm mb-2">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </p>
-            <p class="text-slate-300 text-sm mb-1">
-              Local Guide &#8226; 13 avaliações &#8226; 4 fotos
-            </p>
-            <p class="text-slate-200 text-sm mb-2">3 de set. de 2024</p>
-            <p class="text-slate-300 text-sm">"Ótimo atendimento"</p>
-          </article>
+        <div id="reviews-stats" class="text-center mb-6">
+          <!-- Estatísticas das avaliações serão inseridas aqui dinamicamente -->
+        </div>
+        <div
+          id="reviews-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Avaliações serão inseridas aqui dinamicamente -->
         </div>
 
         <!-- Ações -->
@@ -1468,5 +1403,126 @@
       </div>
     </div>
     <script src="script.js"></script>
+
+    <!-- Script para buscar avaliações do Google em tempo real -->
+    <script>
+      let map;
+      let service;
+
+      function initMap() {
+        // Inicializar o mapa (não visível)
+        map = new google.maps.Map(document.createElement("div"), {
+          center: { lat: -22.4253, lng: -45.4528 },
+          zoom: 15,
+        });
+
+        service = new google.maps.places.PlacesService(map);
+
+        // Place ID do seu negócio no Google My Business
+        // Você pode encontrar o place_id em: https://developers.google.com/places/place-id
+        const placeId = "ChIJ..."; // Substitua pelo seu place_id real
+
+        const request = {
+          placeId: placeId,
+          fields: ["name", "rating", "reviews", "user_ratings_total"],
+        };
+
+        service.getDetails(request, (place, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            displayReviews(place);
+          } else {
+            console.error("Erro ao buscar avaliações:", status);
+            // Fallback para avaliações estáticas se a API falhar
+            displayStaticReviews();
+          }
+        });
+      }
+
+      function displayReviews(place) {
+        const reviewsContainer = document.getElementById("reviews-container");
+        if (!reviewsContainer) return;
+
+        const reviews = place.reviews || [];
+        const rating = place.rating || 0;
+        const totalRatings = place.user_ratings_total || 0;
+
+        // Atualizar estatísticas gerais
+        const statsEl = document.getElementById("reviews-stats");
+        if (statsEl) {
+          statsEl.innerHTML = `
+            <p class="text-slate-200 text-base md:text-lg mb-2 text-center font-semibold">
+              Avaliação média: ${rating.toFixed(1)} ⭐ (${totalRatings} avaliações)
+            </p>
+          `;
+        }
+
+        // Renderizar avaliações
+        if (reviews.length > 0) {
+          reviewsContainer.innerHTML = reviews
+            .slice(0, 6)
+            .map(
+              (review) => `
+            <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <p class="font-bold text-lg mb-1">${review.author_name}</p>
+              <p class="text-yellow-300 text-sm mb-2">${"⭐".repeat(Math.floor(review.rating))}</p>
+              <p class="text-slate-300 text-sm mb-1">${review.relative_time_description}</p>
+              <p class="text-slate-200 text-sm mb-2">${new Date(review.time * 1000).toLocaleDateString("pt-BR")}</p>
+              <p class="text-slate-300 text-sm">"${review.text}"</p>
+            </article>
+          `,
+            )
+            .join("");
+        } else {
+          displayStaticReviews();
+        }
+      }
+
+      function displayStaticReviews() {
+        // Fallback para avaliações estáticas se a API não funcionar
+        const reviewsContainer = document.getElementById("reviews-container");
+        if (!reviewsContainer) return;
+
+        reviewsContainer.innerHTML = `
+          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
+            <p class="font-bold text-lg mb-1">Alessandro Silva Pereira</p>
+            <p class="text-yellow-300 text-sm mb-2">⭐⭐⭐⭐⭐</p>
+            <p class="text-slate-300 text-sm mb-1">3 avaliações • 0 foto</p>
+            <p class="text-slate-200 text-sm mb-2">Há 2 horas</p>
+            <p class="text-slate-300 text-sm">"Muito rápido e eficiente. Parabéns."</p>
+          </article>
+          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
+            <p class="font-bold text-lg mb-1">Rogerio Marinho De Faria Marinho</p>
+            <p class="text-yellow-300 text-sm mb-2">⭐⭐⭐⭐⭐</p>
+            <p class="text-slate-300 text-sm mb-1">6 avaliações • 5 fotos</p>
+            <p class="text-slate-200 text-sm mb-2">Há 3 horas</p>
+            <p class="text-slate-300 text-sm">"A excelência está no atendimento soma a eficiência que qualquer cliente gostaria de ter. Parabéns pelo atendimento."</p>
+          </article>
+          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
+            <p class="font-bold text-lg mb-1">Andreisa Rodrigues</p>
+            <p class="text-yellow-300 text-sm mb-2">⭐⭐⭐⭐⭐</p>
+            <p class="text-slate-300 text-sm mb-1">1 avaliação • 0 foto</p>
+            <p class="text-slate-200 text-sm mb-2">22 de out. de 2024</p>
+            <p class="text-slate-300 text-sm">"Larissa, ótima atendente. Rápida. É o que precisamos no momento..."</p>
+          </article>
+          <article class="bg-white/5 border border-white/10 rounded-2xl p-6">
+            <p class="font-bold text-lg mb-1">PC AAlaor Alves Junior</p>
+            <p class="text-yellow-300 text-sm mb-2">⭐⭐⭐⭐⭐</p>
+            <p class="text-slate-300 text-sm mb-1">Local Guide • 13 avaliações • 4 fotos</p>
+            <p class="text-slate-200 text-sm mb-2">3 de set. de 2024</p>
+            <p class="text-slate-300 text-sm">"Ótimo atendimento"</p>
+          </article>
+        `;
+      }
+
+      // Inicializar quando a página carregar, caso a API já esteja pronta
+      window.addEventListener("load", () => {
+        if (typeof google !== "undefined" && google.maps) {
+          initMap();
+        } else {
+          // Fallback se a API não carregar
+          displayStaticReviews();
+        }
+      });
+    </script>
   </body>
 </html>
