@@ -92,8 +92,8 @@
     />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="produtos.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/produtos.css" />
 
     <style>
       :root {
@@ -1353,87 +1353,6 @@
       </div>
     </footer>
 
-    <script>
-      const btn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("menu-mobile");
-
-      function closeMobileMenu() {
-        mobileMenu.classList.add("hidden");
-        document.body.classList.remove("overflow-hidden");
-      }
-
-      btn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        document.body.classList.toggle(
-          "overflow-hidden",
-          !mobileMenu.classList.contains("hidden"),
-        );
-      });
-
-      document.querySelectorAll("#menu-mobile a").forEach((link) => {
-        link.addEventListener("click", closeMobileMenu);
-      });
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768) {
-          closeMobileMenu();
-        }
-      });
-
-      document.addEventListener("click", (event) => {
-        const clickedOutsideMenu = !mobileMenu.contains(event.target);
-        const clickedOutsideButton = !btn.contains(event.target);
-        const menuIsOpen = !mobileMenu.classList.contains("hidden");
-
-        if (menuIsOpen && clickedOutsideMenu && clickedOutsideButton) {
-          closeMobileMenu();
-        }
-      });
-    </script>
-
-    <script>
-      document.querySelectorAll(".partner-slider").forEach((slider) => {
-        const imageEl = slider.querySelector(".partner-slider-image");
-        const dotsEl = slider.querySelector(".partner-slider-dots");
-        const images = (slider.dataset.images || "")
-          .split("|")
-          .map((item) => item.trim())
-          .filter(Boolean);
-        const intervalMs = Number(slider.dataset.interval || 2600);
-
-        if (!imageEl || !dotsEl || images.length < 2) {
-          return;
-        }
-
-        let currentIndex = 0;
-
-        const renderDots = () => {
-          dotsEl.innerHTML = images
-            .map(
-              (_, index) =>
-                `<span class="h-1.5 w-1.5 rounded-full ${index === currentIndex ? "bg-white" : "bg-white/50"}"></span>`,
-            )
-            .join("");
-        };
-
-        const showImage = (index) => {
-          currentIndex = index;
-          imageEl.style.opacity = "0.2";
-
-          setTimeout(() => {
-            imageEl.src = images[currentIndex];
-            imageEl.style.opacity = "1";
-            renderDots();
-          }, 150);
-        };
-
-        renderDots();
-
-        setInterval(() => {
-          showImage((currentIndex + 1) % images.length);
-        }, intervalMs);
-      });
-    </script>
     <div id="lightbox" class="lightbox-overlay" aria-hidden="true">
       <div class="lightbox-content">
         <button
@@ -1446,6 +1365,59 @@
         <img id="lightbox-img" src="" alt="Imagem ampliada" />
       </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Chatbox simples -->
+    <div id="chat-widget" class="fixed bottom-6 right-6" style="z-index: 1200">
+      <!-- <button
+        id="chat-toggle"
+        class="w-14 h-14 rounded-full bg-blue-600 shadow-xl flex items-center justify-center text-white text-2xl hover:bg-blue-700 focus:outline-none"
+        aria-label="Abrir chat"
+      >
+        💬
+      </button> -->
+
+      <div
+        id="chat-panel"
+        class="hidden w-80 h-[520px] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+      >
+        <header
+          class="flex items-center justify-between px-4 py-3 bg-blue-600 text-white"
+        >
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-bold">Atendimento</span>
+            <span class="text-xs bg-white/20 px-2 py-0.5 rounded-lg"
+              >Online</span
+            >
+          </div>
+          <button
+            id="chat-close"
+            class="text-white text-xl leading-none hover:text-white/80"
+            aria-label="Fechar chat"
+          >
+            ×
+          </button>
+        </header>
+
+        <div
+          id="chat-messages"
+          class="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50"
+        ></div>
+
+        <div class="px-4 pb-4">
+          <p class="text-xs text-slate-500 mb-2">Escolha uma opção rápida:</p>
+          <div class="grid gap-2" id="chat-options"></div>
+          <button
+            id="chat-whatsapp"
+            class="mt-3 w-full bg-green-500 text-white py-2 rounded-xl text-sm font-semibold"
+            type="button"
+          >
+            Falar com atendente
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/chatbox.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

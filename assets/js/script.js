@@ -137,3 +137,95 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Menu móvel (toggle + fechar ao clicar fora)
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("menu-mobile");
+
+  if (!btn || !mobileMenu) {
+    return;
+  }
+
+  const closeMobileMenu = () => {
+    mobileMenu.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  };
+
+  btn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    document.body.classList.toggle(
+      "overflow-hidden",
+      !mobileMenu.classList.contains("hidden"),
+    );
+  });
+
+  document.querySelectorAll("#menu-mobile a").forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    const clickedOutsideMenu = !mobileMenu.contains(event.target);
+    const clickedOutsideButton = !btn.contains(event.target);
+    const menuIsOpen = !mobileMenu.classList.contains("hidden");
+
+    if (menuIsOpen && clickedOutsideMenu && clickedOutsideButton) {
+      closeMobileMenu();
+    }
+  });
+});
+
+// Slider de parceiros
+function initPartnerSliders() {
+  document.querySelectorAll(".partner-slider").forEach((slider) => {
+    const imageEl = slider.querySelector(".partner-slider-image");
+    const dotsEl = slider.querySelector(".partner-slider-dots");
+    const images = (slider.dataset.images || "")
+      .split("|")
+      .map((item) => item.trim())
+      .filter(Boolean);
+    const intervalMs = Number(slider.dataset.interval || 2600);
+
+    if (!imageEl || !dotsEl || images.length < 2) {
+      return;
+    }
+
+    let currentIndex = 0;
+
+    const renderDots = () => {
+      dotsEl.innerHTML = images
+        .map(
+          (_, index) =>
+            `<span class="h-1.5 w-1.5 rounded-full ${
+              index === currentIndex ? "bg-white" : "bg-white/50"
+            }"></span>`,
+        )
+        .join("");
+    };
+
+    const showImage = (index) => {
+      currentIndex = index;
+      imageEl.style.opacity = "0.2";
+
+      setTimeout(() => {
+        imageEl.src = images[currentIndex];
+        imageEl.style.opacity = "1";
+        renderDots();
+      }, 150);
+    };
+
+    renderDots();
+
+    setInterval(() => {
+      showImage((currentIndex + 1) % images.length);
+    }, intervalMs);
+  });
+}
+
+window.addEventListener("load", initPartnerSliders);

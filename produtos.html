@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Produtos | LG Placas Automotiva</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="produtos.css" />
+    <link rel="stylesheet" href="assets/css/produtos.css" />
   </head>
   <body class="bg-gray-100 text-gray-800">
     <!-- Cabeçalho -->
@@ -22,121 +22,29 @@
         </div>
         <a
           href="index.html"
-          class="bg-blue text-[#1d4ed8] px-2 py- rounded hover:bg-gray-20 transition font-semibold"
+          class="bg-white text-[#1d4ed8] px-4 py-2 rounded hover:bg-gray-200 transition font-semibold"
         >
           Voltar ao Início
         </a>
       </div>
     </header>
 
-    <!-- Seção de Produtos -->
-    <section class="max-w-7xl mx-auto px-4 py-12">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Produto 1 -->
-        <div class="card-produto">
-          <h3>Placa Mercosul</h3>
-          <img src="imagens/criar uma imagem de .png" />
-          <p>
-            Alta durabilidade, padrão oficial e acabamento profissional para
-            veículos de todos os tipos.
-          </p>
-          <ul>
-            <li>Material refletivo homologado</li>
-            <li>QR Code com relevo</li>
-            <li>Entrega rápida</li>
-          </ul>
-          <a
-            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Placa%20Mercosul"
-            target="_blank"
-          >
-            Solicitar pelo WhatsApp
-          </a>
+    <!-- Seção de Produtos Interativa -->
+    <section class="max-w-4xl mx-auto px-4 py-12">
+      <div id="menu-container" class="text-center">
+        <h2 class="text-2xl font-bold mb-6">Escolha uma categoria:</h2>
+        <div id="menu-options" class="space-y-4">
+          <button class="menu-btn bg-blue-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700" data-option="1">1 - Placas</button>
+          <button class="menu-btn bg-blue-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700" data-option="2">2 - Orçamento</button>
+          <button class="menu-btn bg-blue-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700" data-option="3">3 - Suportes</button>
         </div>
+        <button id="back-btn" class="mt-6 bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 hidden">Voltar</button>
+      </div>
 
-        <!-- Produto 2 -->
-        <div class="card-produto">
-          <h3>Placas Especiais</h3>
-          <img src="imagens/Placas especiais.jpg" alt="Placa Especial" />
-          <p>
-            Soluções sob medida para <strong>veículos de coleção</strong>,
-            <strong>importados</strong> ou modelos que não comportam placas
-            padrão.
-          </p>
-          <ul>
-            <li>Placas pretas para clássicos</li>
-            <li>Placas verdes para testes</li>
-            <li>Placa mini 11×34 cm</li>
-            <li>Placa reduzida 13×34 cm</li>
-          </ul>
-          <a
-            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Placas%20Especiais"
-            target="_blank"
-          >
-            Solicitar pelo WhatsApp
-          </a>
-        </div>
-
-        <!-- Produto 3 -->
-        <div class="card-produto">
-          <h3>Suporte de Placa Moto</h3>
-          <img
-            src="imagens/SUPORTE MOTO.png"
-            alt="Suporte de Placa Moto"
-            width="50%"
-          />
-          <p>
-            Compatível com diversos modelos, resistente e seguro para fixação
-            das placas.
-          </p>
-          <ul>
-            <li>Alta resistência</li>
-            <li>Design discreto</li>
-            <li>Fácil instalação</li>
-          </ul>
-          <a
-            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Placa%20Mercosul"
-            target="_blank"
-            class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Solicitar pelo WhatsApp
-          </a>
-        </div>
-
-        <div class="card-produto">
-          <h3>Suporte de Placa Carro</h3>
-          <img
-            src="imagens/suporte carro arte.png"
-            alt="Suporte de Placa Moto"
-            width="50%"
-          />
-          <p>
-            Compatível com diversos modelos, resistente e seguro para fixação
-            das placas.
-          </p>
-          <ul>
-            <li>Alta resistência</li>
-            <li>Design discreto</li>
-            <li>Fácil instalação</li>
-          </ul>
-          <a
-            href="https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Placa%20Mercosul"
-            target="_blank"
-            class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Solicitar pelo WhatsApp
-          </a>
-        </div>
+      <div id="product-details" class="hidden mt-8">
+        <!-- Detalhes do produto serão inseridos aqui dinamicamente -->
       </div>
     </section>
-
-    <!-- Botão de Modo Escuro -->
-    <div class="text-center mb-12">
-      <button
-        onclick="document.body.classList.toggle('dark-mode')"
-        class="bg-[#1d4ed8] text-white px-4 py-2 rounded hover:bg-[#2563eb] transition font-semibold"
-      >
-        Alternar Modo Escuro
-      </button>
     </div>
 
     <!-- Rodapé -->
@@ -144,10 +52,169 @@
       class="bg-primary text-white py-4 text-center"
       style="background: linear-gradient(90deg, #1d4ed8, #00040a)"
     >
-      <p>&copy; 2025 LG Placas Automotiva. Todos os direitos reservados.</p>
+      <p>&copy; 2026 LG Placas Automotiva. Todos os direitos reservados.</p>
       <p class="mt-2 text-sm">
         Desenvolvido para atender Itajubá e região com qualidade e confiança.
       </p>
     </footer>
+
+    <script>
+      const productFlow = {
+        main: {
+          title: "Escolha uma categoria:",
+          options: [
+            { label: "1 - Placas", value: "placas", next: "placas" },
+            { label: "2 - Orçamento", value: "orcamento", next: "orcamento" },
+            { label: "3 - Suportes", value: "suportes", next: "suportes" },
+          ],
+        },
+        placas: {
+          title: "Placas (escolha uma opção):",
+          options: [
+            {
+              label: "1 - Placa Mercosul",
+              value: "placa-mercosul",
+              details: {
+                title: "Placa Mercosul",
+                img: "imagens/img-todas-placas-carro.png",
+                desc: "Alta durabilidade, padrão oficial e acabamento profissional para veículos de todos os tipos.",
+                features: ["Material refletivo homologado", "QR Code com relevo", "Entrega rápida"],
+                link: "https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Placa%20Mercosul",
+              },
+            },
+            {
+              label: "2 - Placas Especiais",
+              value: "placas-especiais",
+              details: {
+                title: "Placas Especiais",
+                img: "imagens/img-placas-especiais.png",
+                desc: "Soluções sob medida para veículos de coleção, importados ou modelos que não comportam placas padrão.",
+                features: ["Placas pretas para clássicos", "Placas verdes para testes", "Placa mini 11×34 cm", "Placa reduzida 13×34 cm"],
+                link: "https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Placas%20Especiais",
+              },
+            },
+            { label: "0 - Voltar", value: "voltar-main", next: "main" },
+          ],
+        },
+        orcamento: {
+          title: "Orçamento (escolha tipo):",
+          options: [
+            {
+              label: "1 - Placa para carro",
+              value: "orcamento-carro",
+              details: {
+                title: "Orçamento - Placa para Carro",
+                img: "imagens/img-todas-placas-carro.png",
+                desc: "Placa Mercosul para carro com material 3M e QR Code. Informe modelo/ano para orçamento mais preciso.",
+                features: ["Material 3M refletivo", "QR Code oficial", "Instalação incluída"],
+                link: "https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20orçamento%20para%20placa%20de%20carro",
+              },
+            },
+            {
+              label: "2 - Placa para moto",
+              value: "orcamento-moto",
+              details: {
+                title: "Orçamento - Placa para Moto",
+                img: "imagens/img-placas-moto.png",
+                desc: "Placa Mercosul para moto com alumínio reforçado. Informe modelo para orçamento mais preciso.",
+                features: ["Alumínio reforçado", "Leitura confiável", "Instalação rápida"],
+                link: "https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20orçamento%20para%20placa%20de%20moto",
+              },
+            },
+            { label: "0 - Voltar", value: "voltar-main", next: "main" },
+          ],
+        },
+        suportes: {
+          title: "Suportes (escolha tipo):",
+          options: [
+            {
+              label: "1 - Suporte para moto",
+              value: "suporte-moto",
+              details: {
+                title: "Suporte de Placa Moto",
+                img: "imagens/suporte-moto.png",
+                desc: "Compatível com diversos modelos, resistente e seguro para fixação das placas.",
+                features: ["Alta resistência", "Design discreto", "Fácil instalação"],
+                link: "https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Suporte%20de%20Placa%20Moto",
+              },
+            },
+            {
+              label: "2 - Suporte para carro",
+              value: "suporte-carro",
+              details: {
+                title: "Suporte de Placa Carro",
+                img: "imagens/suporte-carro.png",
+                desc: "Compatível com diversos modelos, resistente e seguro para fixação das placas.",
+                features: ["Alta resistência", "Design discreto", "Fácil instalação"],
+                link: "https://wa.me/5535998669644?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20Suporte%20de%20Placa%20Carro",
+              },
+            },
+            { label: "0 - Voltar", value: "voltar-main", next: "main" },
+          ],
+        },
+      };
+
+      let currentStep = "main";
+      const menuContainer = document.getElementById("menu-container");
+      const menuOptions = document.getElementById("menu-options");
+      const backBtn = document.getElementById("back-btn");
+      const productDetails = document.getElementById("product-details");
+
+      function renderStep(stepKey) {
+        const step = productFlow[stepKey];
+        if (!step) return;
+
+        currentStep = stepKey;
+        menuOptions.innerHTML = "";
+        productDetails.classList.add("hidden");
+
+        const title = menuContainer.querySelector("h2");
+        title.textContent = step.title;
+
+        step.options.forEach((option) => {
+          const btn = document.createElement("button");
+          btn.className = "menu-btn bg-blue-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700 block mx-auto";
+          btn.textContent = option.label;
+          btn.addEventListener("click", () => handleOption(option));
+          menuOptions.appendChild(btn);
+        });
+
+        backBtn.classList.toggle("hidden", stepKey === "main");
+      }
+
+      function handleOption(option) {
+        if (option.details) {
+          showProductDetails(option.details);
+        } else if (option.next) {
+          renderStep(option.next);
+        }
+      }
+
+      function showProductDetails(details) {
+        productDetails.innerHTML = `
+          <div class="card-produto max-w-md mx-auto">
+            <h3>${details.title}</h3>
+            <img src="${details.img}" alt="${details.title}" class="mx-auto" />
+            <p>${details.desc}</p>
+            <ul>
+              ${details.features.map(f => `<li>${f}</li>`).join("")}
+            </ul>
+            <a href="${details.link}" target="_blank" class="mt-auto w-full text-center bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block">
+              Solicitar pelo WhatsApp
+            </a>
+          </div>
+        `;
+        productDetails.classList.remove("hidden");
+        menuContainer.classList.add("hidden");
+      }
+
+      backBtn.addEventListener("click", () => {
+        renderStep("main");
+        menuContainer.classList.remove("hidden");
+      });
+
+      // Inicializar
+      renderStep(currentStep);
+    </script>
   </body>
 </html>
