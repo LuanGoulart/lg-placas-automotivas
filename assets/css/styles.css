@@ -155,3 +155,27 @@ h2 {
     background: radial-gradient(circle at 50% 0%, #2563eb 0%, #00040a 82%) !important;
   }
 }
+
+/* Accessibility improvements */
+.service-card:focus-visible,
+.color-toggle:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.lightbox-overlay[aria-hidden="true"] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -76,7 +76,7 @@ body.dark-mode .card-produto {
 }
 
 .card-produto img:hover {
-  transform: scale(1.8);
+  transform: scale(1.05);
 }
 
 .card-produto h3 {
