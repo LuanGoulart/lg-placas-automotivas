@@ -300,6 +300,12 @@ a:focus-visible {
     font-size: 0.9rem;
   }
 
+  .product-action {
+    min-height: 2.7rem;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.88rem;
+  }
+
   .product-card,
   .service-card,
   .section-panel,
