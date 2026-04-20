@@ -329,6 +329,9 @@ a:focus-visible {
 }
 
 .service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 1));
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -354,6 +357,7 @@ a:focus-visible {
 }
 
 .product-card {
+  height: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 1));
   border: 1px solid rgba(148, 163, 184, 0.16);
   box-shadow: 0 22px 44px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.82);
@@ -454,6 +458,7 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   border-radius: 0.9rem;
   padding: 0.85rem 1.15rem;
   font-weight: 700;
