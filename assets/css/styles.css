@@ -313,6 +313,23 @@ a:focus-visible {
     box-shadow: 0 12px 26px rgba(15, 23, 42, 0.07);
   }
 
+  .section-panel,
+  .product-card,
+  .service-card,
+  .review-card,
+  .contact-card,
+  .footer-panel {
+    border-radius: 1rem !important;
+  }
+
+  .product-card,
+  .service-card,
+  .review-card,
+  .faq-item,
+  .info-card {
+    padding: 1rem !important;
+  }
+
   .service-badge,
   .section-kicker {
     font-size: 0.66rem;
