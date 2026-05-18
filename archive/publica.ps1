@@ -1,6 +1,6 @@
 param(
   [Parameter(Position = 0)]
-  [string]$Message = "atualizacao: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+  [string]$Message = "atualização: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 )
 
 $ErrorActionPreference = 'Stop'
@@ -11,7 +11,7 @@ Set-Location $repoRoot
 
 $insideRepo = git rev-parse --is-inside-work-tree 2>$null
 if ($insideRepo -ne 'true') {
-  Write-Error 'Este script precisa ser executado dentro de um repositorio git.'
+  Write-Error 'Este script precisa ser executado dentro de um repositório git.'
 }
 
 $branch = git rev-parse --abbrev-ref HEAD
@@ -44,7 +44,7 @@ function Get-SitemapUrls {
     return $urls | Select-Object -Unique
   }
   catch {
-    Write-Warning "Nao foi possivel ler sitemap.xml: $($_.Exception.Message)"
+    Write-Warning "Não foi possível ler sitemap.xml: $($_.Exception.Message)"
     return @()
   }
 }
@@ -84,7 +84,7 @@ git add -A
 
 $hasChanges = (git diff --cached --name-only).Length -gt 0
 if (-not $hasChanges) {
-  Write-Host 'Nenhuma alteracao para publicar.'
+  Write-Host 'Nenhuma alteração para publicar.'
   exit 0
 }
 

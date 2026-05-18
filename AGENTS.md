@@ -7,6 +7,7 @@ Este é um site estático para uma empresa de estampagem de placas automotivas l
 - Placas Mercosul para carros e motos
 - Segunda via de placas (perda/furto)
 - Primeiro emplacamento
+- Transferência de propriedade
 - Atendimento regional em Minas Gerais
 
 ## Estrutura do Site
@@ -63,6 +64,8 @@ Este é um site estático para uma empresa de estampagem de placas automotivas l
 - emplacamento
 - placa mercosul
 - segunda via placa
+- placa perdida
+- transferência de propriedade
 - itajubá
 - minas gerais
 
