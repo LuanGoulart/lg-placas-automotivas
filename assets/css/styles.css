@@ -217,17 +217,17 @@ a:focus-visible {
   content: attr(data-label);
   position: absolute;
   right: 82px;
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(5, 46, 22, 0.96);
   color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  padding: 10px 12px;
   border-radius: 999px;
   white-space: nowrap;
   box-shadow: 0 8px 18px rgba(2, 6, 23, 0.35);
-  opacity: 0;
-  transform: translateX(8px);
+  opacity: 1;
+  transform: translateX(0);
   transition: opacity 0.25s ease, transform 0.25s ease;
   pointer-events: none;
 }
@@ -290,7 +290,13 @@ a:focus-visible {
   }
 
   .whatsapp-fixed::after {
-    display: none;
+    display: block;
+    right: 70px;
+    max-width: calc(100vw - 96px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    padding: 9px 10px;
   }
 
   .product-action,
